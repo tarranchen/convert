@@ -66,6 +66,9 @@ def convert_pxm_to_tif():
             # 將一維陣列重塑為 (Height, Width) 的二維影像矩陣
             image_array = raw_data.reshape((HEIGHT, WIDTH))
 
+            # 上下翻轉影像
+            image_array = np.flipud(image_array)
+
             # 轉換為 16-bit 整數
             # 原始值介於 0-4096，這完全落在 uint16 (0-65535) 的範圍內
             # 我們直接轉換型別，保留原始數值

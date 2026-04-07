@@ -98,6 +98,9 @@ def process_pxm_file(pxm_path, tif_path):
         # 將一維陣列重塑為 (height, width) 的二維影像
         image_array = image_array.reshape((height, width))
 
+        # 上下翻轉影像
+        image_array = np.flipud(image_array)
+
         # 使用 tifffile 將 NumPy array 寫入 TIF 檔案
         tifffile.imwrite(tif_path, image_array)
         print(f"成功儲存檔案至 {tif_path}")
